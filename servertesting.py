@@ -7,7 +7,7 @@ def server():
     ip = raw_input("IP> ")
     port = 9009
     s.bind((ip, port))
-    s.listen((5))
+    s.listen(5)
     socks.append(s)
     while True:
         ready_to_read,ready_to_write,in_error = select.select(socks,[],[],0)
@@ -15,6 +15,7 @@ def server():
             if sock == s:
                 sockx, addr = s.accept()
                 socks.append(sockx)
+                print "<%s:%s> has connected" % addr
                 broadcast(s, sockx, "<%s:%s> joined the chat\n" % addr)
             else:
                 try:
