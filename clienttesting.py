@@ -13,8 +13,8 @@ def client():
         read_sockets, write_sockets, error_sockets = select.select(socket_list , [], [])
         for sock in read_sockets:
             if sock == s:
-                msg = sock.recv(4096)
-                if not msg :
+                data = sock.recv(4096)
+                if not data:
                     print "Whoops! Something went wrong!"
                     sys.exit()
                 else:
