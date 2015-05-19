@@ -4,7 +4,7 @@ socks = []
 s = socket.socket()
 def server():
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    ip = socket.gethostname()
+    ip = raw_input("IP> ")
     port = 9009
     s.bind((ip, port))
     s.listen((5))

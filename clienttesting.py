@@ -1,7 +1,7 @@
 import socket, sys, select
 def client():
     s = socket.socket()
-    ip = socket.gethostname()
+    ip = raw_input("IP> ")
     port = 9009
     try:
         s.connect((ip, port))
